@@ -22,10 +22,10 @@ app.get("/", (req, res) => {
 app.use("/api/admin", adminRouter);
 app.use("/api/blog", blogRouter);
 
-const PORT = process.env.PORT || 3000;
+if (!process.env.VERCEL) {
+    const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port: ${PORT}`);
-});
-
-export default app;
+    app.listen(PORT, () => {
+        console.log(`Server is listening on port: ${PORT}`);
+    });
+}

@@ -73,6 +73,7 @@ export const getAllBlogs = async (req, res) => {
         })
         res.json({success: true , blogs})
     } catch (error) {
+        console.log("Get All Blogs Error:", error);
         res.json({success: false , msg: error.msg})
     }
 }
